@@ -1,16 +1,32 @@
-<!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-            require_once 'Caneta.php';
-            $c1 = new Caneta;
-            $c1->cor = "Azul";
-            $c1->ponta = 0.5;
-            $c1->tampada = false;
-        ?>
-    </body>
+ <head>
+  <title>Apostila PHP Progressivo</title>
+ </head>
+ <body>
+    <form action="" method="get">
+        Digite o número maximo: <input type="number" name="maxNumber" />
+        <input type="submit" name="submit" value="enviar" />
+    </form> 
+ <?php
+
+$n = $_GET['maxNumber'];
+ 
+for($i = 1; $i <= $n; $i++)
+{
+    $divisores = 0;
+
+    for($j = $i; $j >= 1; $j--)
+    {
+        if (($i % $j) == 0) {
+            $divisores++;
+        }
+    }
+    
+    if ($divisores == 2)
+    {
+        echo $i . ', ';
+    }
+}
+ ?>
+ </body>
 </html>
